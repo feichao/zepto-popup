@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Zepto Popup</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <meta charset="utf-8">
+  <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" type="text/css" href="../src/zepto-popup.css">
+  <script type="text/javascript" src="zepto.js"></script>
+  <script type="text/javascript" src="../src/zepto-popup.js"></script>
+  <style type="text/css">
+  body {
+  	font-size:20px;
+  }
+  #my-popup {
+    display: none;
+  }
+
+  button {
+    padding: 5px 10px;
+    margin: 20px 10px;
+  }
+
+  input {
+    border: 1px solid #ccc;
+    display: block;
+    padding: 5px 8px;
+    margin: 10px;
+    width: 200px;
+  }
+  </style>
+</head>
+
+<body>
+  <button id="popup">Popup</button>
+  <button id="toast">Toast</button>
+  <div id="my-popup">
+    <input type="text" value="123123123">
+    <input type="text" value="12313131231">
+    <button id="close">Close</button>
+  </div>
+  <div id="toast-info" class="zepto-popup-toast">请输入地址</div>
+  <script type="text/javascript">
+  var temp, toast;
+  temp = $('#my-popup').ZPopup();
+
+  toast = $('#toast-info').ZPopup('toast');
+
+  $('#popup').on('tap', function() {
+    temp && temp.show();
+  });
+
+  $('#close').on('tap', function(){
+  	temp && temp.close();
+  });
+
+  $('#toast').on('tap', function(){
+  	toast.showToast(new Date());
+  });
+
+  </script>
+</body>
+
+</html>
