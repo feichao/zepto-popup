@@ -1,11 +1,12 @@
 ## 基于Zepto的弹出框组件 
 
-标签（空格分隔）： Zepto Popup Toast
+标签：Zepto Popup Toast
 
 ---
 主要是用在移动端的弹出框组件，使用Zepto，也兼容jQuery。主要有两个功能：
 
  1. Popup
+ 
     HTML中弹出框需要设置display: none;
 
     ```
@@ -40,6 +41,7 @@
     zPopipDialog.close();
     ```
  2. Toast
+ 
     HTML中可以使用你喜欢的任何标签，顺便加上class: zepto-popup-toast。
 
     ```
