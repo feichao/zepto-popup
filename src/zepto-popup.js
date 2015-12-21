@@ -4,7 +4,7 @@
   var ZeptoPopup = function(ele, options) {
     return {
       options: {
-        direction: 'under',
+        direction: 'bottom',
         height: '80%'
       },
       init: function() {
@@ -56,4 +56,4 @@
   };
 
 
-})(Zepto);
+})(window.Zepto || window.jQuery);

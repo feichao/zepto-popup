@@ -42,23 +42,23 @@
     <input type="text" value="12313131231">
     <button id="close">Close</button>
   </div>
-  <div id="toast-info" class="zepto-popup-toast">请输入地址</div>
+  <p id="toast-info" class="zepto-popup-toast">请输入地址</p>
   <script type="text/javascript">
   var temp, toast;
   temp = $('#my-popup').ZPopup();
 
   toast = $('#toast-info').ZPopup('toast');
 
-  $('#popup').on('tap', function() {
+  $('#popup').on('click', function() {
     temp && temp.show();
   });
 
-  $('#close').on('tap', function(){
+  $('#close').on('click', function(){
   	temp && temp.close();
   });
 
-  $('#toast').on('tap', function(){
-  	toast.showToast(new Date());
+  $('#toast').on('click', function(){
+  	toast.showToast('toast info');
   });
 
   </script>
