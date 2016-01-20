@@ -5,7 +5,8 @@
     return {
       options: {
         direction: 'bottom',
-        height: '80%'
+        height: '80%',
+        bodyOverflow: ''
       },
       init: function() {
         this.options = $.extend(true, this.options, options);
@@ -23,10 +24,13 @@
         }
       },
       show: function() {
+        this.options.bodyOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
         this.options.wrapElement.addClass('show');
         ele.show();
       },
       close: function(){
+        document.body.style.overflow = this.options.bodyOverflow;
         this.options.wrapElement.removeClass('show');
       },
       showToast: function(msg, timeout) {
@@ -44,8 +48,6 @@
 
   $.fn.ZPopup = function(options) {
     if (options === 'toast') {
-      var $this = $(this);
-      $this.hasClass('zepto-popup-toast') || $this.addClass('zepto-popup-toast');
       return new ZeptoPopup($(this));
     } else {
       var zeptoPopup = new ZeptoPopup($(this), options);
@@ -56,4 +58,4 @@
   };
 
 
-})(window.Zepto || window.jQuery);
+})(Zepto || jQuery);
