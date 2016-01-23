@@ -6,7 +6,7 @@
       options: {
         direction: 'bottom',
         height: '80%',
-        bodyOverflow: ''
+        bodyStyle: {}
       },
       init: function() {
         this.options = $.extend(true, this.options, options);
@@ -24,13 +24,17 @@
         }
       },
       show: function() {
-        this.options.bodyOverflow = document.body.style.overflow;
+        this.options.bodyStyle.overflow = document.body.style.overflow;
+        this.options.bodyStyle.position = document.body.style.position;
+
         document.body.style.overflow = 'hidden';
+        document.body.style.position = 'relative';
         this.options.wrapElement.addClass('show');
         ele.show();
       },
       close: function(){
-        document.body.style.overflow = this.options.bodyOverflow;
+        document.body.style.overflow = this.options.bodyStyle.overflow;
+        document.body.style.position = this.options.bodyStyle.position;
         this.options.wrapElement.removeClass('show');
       },
       showToast: function(msg, timeout) {
