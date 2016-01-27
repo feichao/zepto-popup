@@ -20,25 +20,25 @@
     
     在javascript中初始化弹出框，有两个参数需要注意下，第一个direction表示弹出框从window的哪个边界弹出，目前只支持bottom，可以暂时不用管它。height为弹出框的最大高度，默认为屏幕高度的80%，当弹出框高度大于80%时将会出现滚动条。
     ```
-    var zPopipDialog;
+    var zPopupToast;
     window.onload = function() {
         //初始化弹出框
         var option = {
             direction: 'bottom',
             height: '80%'
         };
-        zPopipDialog = $('#my-popup').ZPopup();
+        zPopupToast = $('#my-popup').ZPopup();
     }
     ```
     
     需要使用时，只需要
     ```
-    zPopipDialog.show();
+    zPopupToast.show();
     ```
     
     关闭弹出框时：
     ```
-    zPopipDialog.close();
+    zPopupToast.close();
     ```
  2. Toast
  
@@ -50,10 +50,10 @@
     
     同样也需要在javascript中初始化Toast，需要注意的是，初始化时要加上toast参数。
     ```
-    var zPopipToast;
+    var zPopupToast;
     window.onload = function() {
         //初始化弹出框
-        zPopipToast = $('#toast-info').ZPopup('toast');
+        zPopupToast = $('#toast-info').ZPopup('toast');
     }
     ```
     

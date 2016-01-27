@@ -22,6 +22,14 @@
           ele.wrap('<div id="' + this.options.id + '" class="zepto-popup"></div>');
           this.options.wrapElement = $(document.getElementById(this.options.id));
         }
+
+        var wrapEle = this.options.wrapElement.get(0);
+        this.options.wrapElement.off('touchmove').on('touchmove', function(ev){
+          if(ev.target === wrapEle) {
+            ev.preventDefault();
+            ev.stopPropagation();
+          }
+        });
       },
       show: function() {
         this.options.bodyStyle.overflow = document.body.style.overflow;
